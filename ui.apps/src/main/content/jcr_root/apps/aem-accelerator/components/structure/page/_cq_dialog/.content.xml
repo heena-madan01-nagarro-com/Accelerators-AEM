@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Page"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[cq.common.wcm,core.wcm.components.page.v2.editor,cq.wcm.msm.properties,granite.contexthub.configuration,cq.siteadmin.admin.properties]"
+    helpPath="https://www.adobe.com/go/aem_cmp_page_v2"
+    mode="edit"
+    trackingFeature="core-components:page:v2">
+    <content
+        granite:class="cq-dialog-content-page"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                granite:class="cq-siteadmin-admin-properties-tabs"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                size="L">
+                <items jcr:primaryType="nt:unstructured">
+                    <analytics
+                        cq:showOnCreate="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Analytics"
+                        sling:orderBefore="socialmedia"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <section
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Track Analytics"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <inputgroup
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/text"
+                                                text="Enable Analytics on Page"/>
+                                            <field
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <enable
+                                                        cq:showOnCreate="{Boolean}true"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldDescription="Please check to enable analytics at page level"
+                                                        name="./enableAnalyticsOnPage"
+                                                        renderReadOnly="{Boolean}true"
+                                                        text="Enable Analytics"
+                                                        value="true">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cq-msm-lockable="enableAnalyticsOnPage"/>
+                                                    </enable>
+                                                    <trackaction
+                                                        cq:showOnCreate="{Boolean}true"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                        fieldDescription="This track Action must be same to the trigger created in GTM"
+                                                        fieldLabel="Enter Track Action to track page view. "
+                                                        name="./trackAction"
+                                                        renderReadOnly="{Boolean}true">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cq-msm-lockable="trackAction"/>
+                                                    </trackaction>
+                                                </items>
+                                            </field>
+                                            <tracklinkgroup
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/text"
+                                                text="Enable tracking of links"/>
+                                            <field1
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <enableLinkTrackingOnPage
+                                                        cq:showOnCreate="{Boolean}true"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        fieldDescription="Please check to enable link tracking in Analytics(page level). This will track all links specified with provided track id.on this page."
+                                                        name="./enableLinkTrackingOnPage"
+                                                        renderReadOnly="{Boolean}true"
+                                                        text="Enable Link tracking on page"
+                                                        value="true">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cq-msm-lockable="enableLinkTrackingOnPage"/>
+                                                    </enableLinkTrackingOnPage>
+                                                    <trackid
+                                                        cq:showOnCreate="{Boolean}true"
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/textfield"
+                                                        fieldDescription="This track id must be same to the trigger created in GTM"
+                                                        fieldLabel="Enter Track id to track all links of the page"
+                                                        name="./trackId"
+                                                        renderReadOnly="{Boolean}true">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cq-msm-lockable="trackId"/>
+                                                    </trackid>
+                                                </items>
+                                            </field1>
+                                        </items>
+                                    </section>
+                                </items>
+                            </column>
+                        </items>
+                    </analytics>
+                    <headtag
+                        cq:showOnCreate="{Boolean}true"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Head Tag Configuration"
+                        sling:orderBefore="socialmedia"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <section
+                                        cq:isContainer="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Meta Tag configuration"
+                                        sling:resourceType="granite/ui/components/coral/foundation/accordion"
+                                        multiple="{Boolean}true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <facebook
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Facebook og Tags"
+                                                sling:resourceType="granite/ui/components/coral/foundation/accordion">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <title
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Title"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./fbTitle"/>
+                                                    <description
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Description"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./fbDescription"/>
+                                                    <image
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Image"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        name="./fbImage"/>
+                                                    <imagetype
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Image Type"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./fbImageType"/>
+                                                    <imageheight
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Image Height"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./fbimgheight"/>
+                                                    <imagewidth
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Image Width"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./fbimgwidth"/>
+                                                    <url
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="URL"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./fbURL"/>
+                                                    <type
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Type"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./fbType"/>
+                                                    <sitename
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Sitename"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./fbSitename"/>
+                                                </items>
+                                            </facebook>
+                                            <twitter
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Twitter og Tags"
+                                                sling:resourceType="granite/ui/components/coral/foundation/accordion">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <title
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Title"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./twTitle"/>
+                                                    <description
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Description"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./twDescription"/>
+                                                    <image
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Image"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        name="./twImage"/>
+                                                    <imagetype
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Image Type"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./twImagetype"/>
+                                                    <imageheight
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Image Height"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./twimgheight"/>
+                                                    <card
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Card"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./twCard"/>
+                                                    <site
+                                                        jcr:primaryType="nt:unstructured"
+                                                        jcr:title="Site"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./twSite"/>
+                                                </items>
+                                            </twitter>
+                                            <canonical
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Canonical URL"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./canonical"/>
+                                            <robot
+                                                jcr:primaryType="nt:unstructured"
+                                                jcr:title="Robots"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./robots"/>
+                                        </items>
+                                    </section>
+                                </items>
+                            </column>
+                        </items>
+                    </headtag>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

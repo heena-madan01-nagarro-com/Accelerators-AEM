@@ -1,0 +1,31 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='heroimage.components'}"/>
+<sly data-sly-call="${clientlib.js @ categories='heroimage.components,aemaccelerator.utilities'}"/>
+
+<sly data-sly-use.heroimage="com.adobe.aem.guides.aemaccelerator.core.models.HeroImageModel"/>
+<sly data-sly-test.isEmpty="${heroimage.fileReference}"/>
+<sly data-sly-test.isEnable="${inheritedPageProperties['enableLinkTrackingOnPage'] == 'true'}">
+    <sly data-sly-test.trackId="${inheritedPageProperties.trackId}"/>
+</sly>
+<sly data-sly-use.heroimageanalytics="com.adobe.aem.guides.aemaccelerator.core.models.AnalyticsConfigurationModel"/>
+<div class="heroImage ${!isEmpty ? 'blackBack' : ''}">
+    <sly data-sly-test="${isEmpty}">
+        <img src="${heroimage.fileReference}" alt="preview">
+    </sly>
+    <div class="${heroimage.searchPosition}" data-sly-test="${heroimage.addSearch}">
+        <sly data-sly-resource="${'search' @ resourceType='core/wcm/components/search/v1/search'}"/>
+    </div>
+    <div class="top-center text-uppercase">${heroimage.title ? heroimage.title : currentPage.title}</div>
+    <div class="heroImageHeading"><h3>${heroimage.heading ? heroimage.heading : "Heading"}</h3></div>
+    <div class="bottom-center" data-sly-test="${heroimage.addButton}">
+        <sly data-sly-list.aHeroimage="${heroimage.buttonslist}">
+            <sly data-sly-test.class_val="${trackId}_${currentNode.name}_${currentNode.parent.parent.parent.parent.name}_${aHeroimageList.count}"></sly>
+            <a href="${aHeroimage.link ? aHeroimage.link : ''}.html" target="_blank"
+               class="${class_val}">
+                <button type="button"
+                        class="btn btn-info heroImageButton ${aHeroimage.backgroundColor == '#000000' ? 'black' : (aHeroimage.backgroundColor == '#FFFFFF' ? 'white' : (aHeroimage.backgroundColor == '#D8F1FF' ? 'hugo-blue' : ''))}">${aHeroimage.title ? aHeroimage.title : "Add button title"}</button>
+            </a>
+        </sly>
+    </div>
+</div>
+

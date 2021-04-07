@@ -1,0 +1,31 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='videoplayer.components'}"/>
+<sly data-sly-call="${clientlib.js @ categories='videoplayer.components,aemaccelerator.utilities'}"/>
+<sly data-sly-use.videoPlayer="com.adobe.aem.guides.aemaccelerator.core.models.VideoPlayerModel"/>
+<sly data-sly-test.empty="${!videoPlayer.youtubeId}"/>
+<sly data-sly-use.videoanalytics="com.adobe.aem.guides.aemaccelerator.core.models.AnalyticsConfigurationModel"/>
+<sly data-sly-test="${videoanalytics.enable}">
+    <span class="ytCategoryGTM"
+          enable="${videoanalytics.enable @ context='html'}"
+          eventCategory="${videoanalytics.eventCategory @ context='html'}"
+          event="${videoanalytics.enable @ context='html'}"
+          eventAction="${videoanalytics.eventAction @ context='html'}"
+          eventLabel="${videoanalytics.eventLabel @ context='html'}"
+          style="display: none">${currentPage.name}_${component.name}</span>
+</sly>
+<sly data-sly-test="${inheritedPageProperties['enableLinkTrackingOnPage'] == 'true'}">
+    <sly data-sly-test.trackId="${inheritedPageProperties.trackId}"/>
+</sly>
+<div data-sly-test="${wcmmode.edit && empty}" class="cq-placeholder" data-emptytext="${component.title}"></div>
+<sly data-sly-test="${!empty}">
+    <sly data-sly-test.lang="${'en'}"/>
+    <div class="video-wrapper">
+        <sly data-sly-test.class_val="${trackId}_${currentNode.name}_${currentNode.parent.parent.parent.parent.name}"></sly>
+        <sly data-sly-test.class="${videoanalytics.enable ? class_val : ''}"/>
+        <iframe type="text/html" class="videoiframe ${class}"
+                src="https://www.youtube.com/embed/${videoPlayer.youtubeId}?mute=${videoPlayer.mute ? '1' : '0'}&controls=${videoPlayer.control ? '0' : '1'}&enablejsapi=1&disablekb=${videoPlayer.keyboard ? '1' : '0'}&fs=${videoPlayer.fullscreen ? '1' : '0'}&modestbranding=1&playsinline=1&cc_load_policy=1&cc_lang_pref=am&hl=${lang}&autohide=${videoPlayer.autoHideControls ? '1' : '0'}&rel=0;html5=1"
+                frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+
+    </div>
+
+</sly>

@@ -1,0 +1,23 @@
+.megamenu{
+	padding: 50px;
+	background-color: #fff;
+}
+.megamenu h4{
+	font-size: 20px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.megamenu p{
+	color: #868686;
+    margin-bottom: 10px;
+}
+
+.megamenu a{
+	text-decoration: none;
+	color: #868686;
+}
+
+.megamenu a:hover{
+	color: #009fc7;
+}

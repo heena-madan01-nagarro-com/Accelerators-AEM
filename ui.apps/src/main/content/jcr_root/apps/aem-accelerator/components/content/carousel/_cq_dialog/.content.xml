@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Carousel"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[core.wcm.components.commons.editor.dialog.childreneditor.v1,core.wcm.components.carousel.v1.editor,carousel.components, aemaccelerator.utilities]"
+    helpPath="https://www.adobe.com/go/aem_cmp_carousel_v1"
+    trackingFeature="core-components:carousel:v1">
+    <content
+        granite:class="cmp-carousel__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <asset
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Assets"
+                        sling:resourceType="granite/ui/components/foundation/section">
+                        <layout
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <fieldset
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/fieldset">
+                                        <layout
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <carouselComponents
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        addButtonClass="CarouselAddMultifield"
+                                                        composite="{Boolean}true"
+                                                        fieldDescription="Click '+' to add a Component"
+                                                        fieldLabel="Carousel Slides">
+                                                        <field
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            fieldLabel="Component"
+                                                            name="./carouselComponents">
+                                                            <layout
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                                                                method="absolute"/>
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <column
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    jcr:title="Slide"
+                                                                    sling:resourceType="granite/ui/components/foundation/container">
+                                                                    <layout
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/layouts/collapsible"
+                                                                        method="absolute"/>
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <heading
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            fieldDescription="Enter Description"
+                                                                            fieldLabel="Description"
+                                                                            name="./heading"/>
+                                                                        <title
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            class="heroImageTitle"
+                                                                            fieldDescription="Enter Image Title"
+                                                                            fieldLabel="Title"
+                                                                            name="./title"/>
+                                                                        <addButton
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                                                            class="addButtonClass"
+                                                                            name="./addButton"
+                                                                            text="Want to add button?"
+                                                                            uncheckedValue="false"
+                                                                            value="true"/>
+                                                                        <buttontitle
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            class="buttonTitle"
+                                                                            fieldLabel="Button Title"
+                                                                            name="./buttontitle"/>
+                                                                        <buttonlink
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                            class="buttonLink"
+                                                                            fieldDescription="Enter Button Link"
+                                                                            fieldLabel="Button Link"
+                                                                            name="./buttonlink"
+                                                                            rootPath="/content"/>
+                                                                        <carouselAsset
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                            allowUpload="{Boolean}false"
+                                                                            class="cq-droptarget"
+                                                                            fieldDescription="Add Asset"
+                                                                            fieldLabel="Select Asset"
+                                                                            fileNameParameter="./carouselImagePath"
+                                                                            fileReferenceParameter="./carouselImagePath"
+                                                                            name="./carouselImageRef"
+                                                                            rootPath="/content/dam"
+                                                                            title="Asset"
+                                                                            uploadUrl="${suffix.path}"
+                                                                            useHTML5="{Boolean}true"/>
+                                                                    </items>
+                                                                </column>
+                                                            </items>
+                                                        </field>
+                                                    </carouselComponents>
+                                                </items>
+                                            </column>
+                                        </items>
+                                    </fieldset>
+                                </items>
+                            </column>
+                        </items>
+                    </asset>
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <autoplay
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="${not empty cqDesign.autoplay ? cqDesign.autoplay : false}"
+                                                fieldDescription="If checked, automatically transition between slides."
+                                                name="./autoplay"
+                                                text="Automatically transition slides"
+                                                uncheckedValue="false"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cmp-carousel-v1-dialog-hook="autoplay"/>
+                                            </autoplay>
+                                            <autoplayGroup
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <alert
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/alert"
+                                                        size="S"
+                                                        text="Automatic transitions are previewed with the 'View as Published' page action."
+                                                        variant="info"/>
+                                                    <delay
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                        fieldDescription="The delay (in milliseconds) before automatically transitioning to the next slide."
+                                                        fieldLabel="Transition Delay (milliseconds)"
+                                                        max="600000"
+                                                        min="0"
+                                                        name="./delay"
+                                                        step="100"
+                                                        value="${not empty cqDesign.delay ? cqDesign.delay : 5000}">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cmp-carousel-v1-dialog-hook="delay"/>
+                                                    </delay>
+                                                    <autopauseDisabled
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                        checked="${not empty cqDesign.autopauseDisabled ? cqDesign.autopauseDisabled : false}"
+                                                        fieldDescription="If checked, automatic pause when hovering the carousel is disabled."
+                                                        name="./autopauseDisabled"
+                                                        text="Disable automatic pause on hover"
+                                                        uncheckedValue="false"
+                                                        value="true">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            cmp-carousel-v1-dialog-hook="autopauseDisabled"/>
+                                                    </autopauseDisabled>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cmp-carousel-v1-dialog-hook="autoplayGroup"/>
+                                            </autoplayGroup>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                    <analytics
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Analytics"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <layout
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <enable
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                        class="cq-dialog-checkbox-showhide"
+                                        cq-dialog-checkbox-showhide-target=".button-option-enable-showhide-target"
+                                        fieldDescription="Please check to enable Analytics for Header component"
+                                        id="enable"
+                                        name="./enable"
+                                        text="Enable Analytics"
+                                        value="true"/>
+                                    <showHideContainer
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        class="hide button-option-enable-showhide-target"
+                                        showhidetargetvalue="true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <eventcategory
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                class="eventCategory"
+                                                fieldDescription="Enter Event Category to track Analytics"
+                                                fieldLabel="Event Category*"
+                                                name="./eventCategory"/>
+                                            <eventaction
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                class="eventAction"
+                                                fieldDescription="Enter Event Action to track Analytics"
+                                                fieldLabel="Event Action*"
+                                                name="./eventAction"/>
+                                            <eventlabel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                class="eventLabel readOnlyClass"
+                                                fieldDescription="Enter Event Label to track Analytics"
+                                                fieldLabel="Event Label*"
+                                                name="./eventLabel"/>
+                                            <event
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                class="event"
+                                                fieldDescription="Enter Event to track Analytics"
+                                                fieldLabel="Event*"
+                                                name="./event"/>
+                                        </items>
+                                    </showHideContainer>
+                                </items>
+                            </columns>
+                        </items>
+                    </analytics>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,5 @@
+<sly data-sly-include="pagetracking.html"></sly>
+<sly data-sly-test="${!wcmmode.edit || !wcmmode.design}"
+     data-sly-use.gtmModel="com.adobe.aem.guides.aemaccelerator.core.models.GTMConfigurationModel">
+    ${gtmModel.data['headerScript'] @ context='unsafe'}
+    <sly>

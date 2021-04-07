@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2020-06-01T13:32:43.433+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2020-06-01T13:32:51.210+05:30"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:templateType="/conf/aemaccelerator/settings/wcm/template-types/generic-empty-page"
+        jcr:description="Header Footer added in structure component. Changes made to the structure will be reflected in any pages created with the template.&#xd;&#xa;"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Generic Page template"
+        status="enabled"/>
+</jcr:root>

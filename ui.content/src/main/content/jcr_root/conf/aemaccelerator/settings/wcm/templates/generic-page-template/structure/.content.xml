@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[/etc/mobile/groups/responsive]"
+        cq:lastModified="{Date}2020-06-01T13:32:43.433+05:30"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2020-06-01T13:32:51.210+05:30"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:template="/conf/aemaccelerator/settings/wcm/templates/generic-page-template"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:uuid="0eb468b6-caeb-414f-a6be-c5fdc066bcd1"
+        sling:resourceType="aem-accelerator/components/structure/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <header
+                jcr:created="{Date}2020-06-01T13:22:22.929+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2020-06-01T13:25:42.268+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-accelerator/components/content/header"
+                enable="true"
+                event="GAClickEvent"
+                eventAction="custom header action"
+                eventCategory="custom header category"
+                eventLabel="Header Clicked"
+                showLogo="true">
+                <sections jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        altText="wishlist"
+                        linkPath="/content/aemaccelerator/us/en"
+                        sectionImageRef="/content/dam/core-components/core-comp-test-image.jpg"
+                        sectionTitle="Wishlist"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        altText="cart"
+                        linkPath="/content/aemaccelerator/us/en"
+                        sectionImageRef="/content/dam/demoproject/asset.jpg"
+                        sectionTitle="cart"/>
+                </sections>
+            </header>
+            <responsivegrid
+                jcr:created="{Date}2020-06-01T13:22:28.113+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2020-06-01T13:22:28.113+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <cq:responsive jcr:primaryType="nt:unstructured"/>
+                <list
+                    jcr:created="{Date}2020-06-01T13:31:57.770+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2020-06-01T13:32:43.426+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aem-accelerator/components/content/list"
+                    childDepth="3"
+                    linkItems="false"
+                    listFrom="children"
+                    parentPage="/content/aemaccelerator"
+                    showDescription="false"
+                    showModificationDate="false"
+                    sortOrder="asc"
+                    tagsMatch="any"/>
+            </responsivegrid>
+            <footer
+                jcr:created="{Date}2020-06-01T13:22:33.730+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2020-06-01T13:29:59.517+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="aem-accelerator/components/content/footer"
+                enable="true"
+                event="GAClickEvent"
+                eventAction="custom footer action"
+                eventCategory="custom footer category"
+                eventLabel="footer Clicked"
+                heading="@copyright2020"
+                socialShare="true">
+                <privacySection jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        linkPath="/content/aemaccelerator/us/en"
+                        sectionTitle="faq"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        linkPath="/content/aemaccelerator/us/en"
+                        sectionTitle="cos"/>
+                </privacySection>
+                <social
+                    jcr:lastModified="{Date}2020-06-01T13:31:11.343+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aem-accelerator/components/content/socialsharing"
+                    enable="true"
+                    event="socialInteraction"
+                    eventAction="It will take link url of social media"
+                    eventCategory="Social Share"
+                    eventLabel="This will take link text of social media"
+                    socialShareHeading="Follow Us">
+                    <sociallinks jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            altText="facebook"
+                            linkStyle="facebook"
+                            linkTarget="lightbox"
+                            linkText="Facebook"
+                            linkTitle="Facebook"
+                            shareUrl="/content/aemaccelerator/us/home"
+                            socialImageRef="/content/dam/core-components/core-comp-test-image.jpg"/>
+                    </sociallinks>
+                </social>
+            </footer>
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>

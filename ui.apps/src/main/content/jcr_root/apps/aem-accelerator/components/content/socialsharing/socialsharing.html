@@ -1,0 +1,48 @@
+<div data-sly-test.editor="${wcmmode.edit || wcmmode.design}"> Double click to Configure Socal Share Component</div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='multiimage.components'}"/>
+<sly data-sly-call="${clientlib.js @ categories='multiimage.components, aemaccelerator.utilities'}"/>
+
+<sly data-sly-use.model="com.adobe.aem.guides.aemaccelerator.core.models.SocialShareModel"/>
+<!--get tracking id from page-->
+<sly data-sly-test.isEnable="${inheritedPageProperties['enableLinkTrackingOnPage'] == 'true'}">
+<sly data-sly-test.trackId="${inheritedPageProperties.trackId}"/>
+</sly>
+
+<sly data-sly-list="${resource.listChildren}">
+    <sly data-sly-test="${ item.name =='sociallinks' }">
+        <sly data-sly-use.analticsData="com.adobe.aem.guides.aemaccelerator.core.models.AnalyticsConfigurationModel"/>
+
+        <section
+    class="" data-component-name="sociallinks">
+
+     <div class="">
+     ${model.socialShareHeading}
+     <br/>
+    </div>
+
+    <div style="text-align: center">
+        <sly data-sly-list.socialshare="${model.socialShareList}">
+        <sly data-sly-test.updatedUrl="${'{0}{1}' @ format=[socialshare.shareUrl, '.html']}"></sly>
+		<sly data-sly-test.mailTo="mailto:${socialshare.shareUrl}"></sly>
+        <a href="${socialshare.linkStyle != 'email' ? updatedUrl : mailTo}"
+                	data-sly-attribute.id="${analticsData.event}"
+                    data-action="${analticsData.eventAction}"
+                    data-counter="${socialshare.linkStyle}"
+                    data-url="${socialshare.shareUrl}"
+                    title="${socialshare.linkTitle}"
+                    role="button"
+                    rel="noopener noreferrer"
+                    target="${socialshare.linkTarget}"
+                    data-lightbox="${socialshare.linkTarget == 'lightbox' ? 'true' : '' }"
+                   onClick="trackAnalytics('${analticsData.isEnable @ context='unsafe'}' ,'${analticsData.event @ context='unsafe'}','${socialshare.shareUrl @ context='unsafe'}',
+                   '${analticsData.eventCategory @ context='unsafe'}',
+                    '${socialshare.linkText @ context='unsafe'}')"
+                    data-network="${socialshare.linkText}">
+                   <img data-sly-test="${socialshare.socialImageRef}" src="${socialshare.socialImageRef}" alt="${socialshare.altText}" width="20" />
+                </a>
+            </sly>
+    </div>
+</section>
+    </sly>
+</sly>

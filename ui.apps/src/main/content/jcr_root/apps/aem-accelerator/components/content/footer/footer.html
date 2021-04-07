@@ -1,0 +1,34 @@
+<div data-sly-test.editor="${wcmmode.edit || wcmmode.design}">Double Click to Configure Footer Component</div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='footer.components'}"/>
+<sly data-sly-call="${clientlib.js @ categories='footer.components,aemaccelerator.utilities'}"/>
+<!--get tracking id from page-->
+<sly data-sly-test.isEnable="${inheritedPageProperties['enableLinkTrackingOnPage'] == 'true'}">
+    <sly data-sly-test.trackId="${inheritedPageProperties.trackId}"/>
+</sly>
+<sly data-sly-use.analticsData="com.adobe.aem.guides.aemaccelerator.core.models.AnalyticsConfigurationModel"/>
+<div class="track-footer" data-component-name="footer"
+     onClick="trackAnalytics('${analticsData.isEnable @ context='unsafe'}','${analticsData.event @ context='unsafe'}',
+   '${analticsData.eventAction @ context='unsafe'}', '${analticsData.eventCategory @ context='unsafe'}', '${analticsData.eventLabel @ context='unsafe'}')">
+    <sly data-sly-use.footerModel="com.adobe.aem.guides.aemaccelerator.core.models.FooterModel"/>
+    <sly data-sly-test.imageStyle="${footerModel.imagePath}"/>
+    <div class="${footerModel.imagePath ? 'footerImage' : 'footerNoImage'}" style="background-image:url(${imageStyle @ context='styleString'});">
+        <div class="footer-right">
+            <!--accordion-->
+            <sly data-sly-test="${properties.socialShare}"
+                 data-sly-resource="${'social' @ resourceType='aem-accelerator/components/content/socialsharing'}"/>
+        </div>
+        <sly data-sly-test="${properties.isFooterMenu}">
+            <div style="width:500px">
+                <sly data-sly-resource="${'footermenu' @ resourceType='aem-accelerator/components/content/headerItems'}"/>
+            </div>
+        </sly>
+        <div class="textalign">
+            <sly data-sly-use.footerModel="com.adobe.aem.guides.aemaccelerator.core.models.FooterModel"/>
+            <sly data-sly-list.section="${footerModel.privacySections}">
+                <a href="${section.linkPath}.html" class="${trackId}">${section.sectionTitle} </a> &nbsp;
+            </sly>
+        </div>
+        <div class="textalign">${properties.heading}</div>
+    </div>
+</div>

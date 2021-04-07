@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aem-accelerator"/>
+    <filter root="/apps/nagarro-gtm-config"/>
+    <filter root="/apps/cq/core/content/nav/tools/custom-tools" />
+    <filter root="/apps/msm/aem-accelerator_blueprint" mode="merge"/>
+</workspaceFilter>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Nagarro GTM Configuration"
+        sling:resourceType="granite/ui/components/shell/page"
+        consoleId="gtm-config">
+        <head jcr:primaryType="nt:unstructured">
+            <clientlibs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+                categories="[granite.ui.coral.foundation,excel-to-json.base]"/>
+        </head>
+        <title
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Nagarro GTM Configuration"
+            sling:resourceType="granite/ui/components/shell/title"/>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container"
+            margin="{Boolean}true">
+            <items jcr:primaryType="nt:unstructured">
+                <columns
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                    margin="{Boolean}true">
+                    <items jcr:primaryType="nt:unstructured">
+                        <column
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                            <items jcr:primaryType="nt:unstructured">
+                                <container
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    margin="{Boolean}true">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <heading
+                                            granite:class="coral-Heading coral-Heading--2"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                            level="{Long}2"
+                                            text="Add GTM Configuration Here"/>
+                                        <well
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/well"
+                                            margin="{Boolean}true">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <container
+                                                    granite:id="gtmForm"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form"
+                                                    foundationForm="{Boolean}true"
+                                                    loadingMask="{Boolean}true"
+                                                    margin="{Boolean}true"
+                                                    maximized="{Boolean}true"
+                                                    style="vertical">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <loadingGIF
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/field"
+                                                            fieldLabel=""
+                                                            wrapperClass="loading loading--hide"/>
+                                                        <gtmContainerId
+                                                            granite:id="gtmContainerId"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="GTM Container Id"
+                                                            name="./gtmContainerId"
+                                                            required="{Boolean}true"/>
+                                                        <gtmHeaderScript
+                                                            granite:id="gtmHeaderScript"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                            fieldLabel="GTM Header Script*"
+                                                            name="./gtmHeaderScript"
+                                                            required="{Boolean}true"/>
+                                                        <gtmBodyScript
+                                                            granite:id="gtmBodyScript"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/textarea"
+                                                            fieldLabel="GTM Body Script*"
+                                                            name="./gtmBodyScript"
+                                                            required="{Boolean}true"/>
+                                                        <submitButton
+                                                            granite:id="btnSubmit"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/button"
+                                                            text="Submit Configuration"
+                                                            type="submit"/>
+                                                        <resultMessage
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/field"
+                                                            fieldLabel=""
+                                                            wrapperClass="result"/>
+                                                    </items>
+                                                </container>
+                                            </items>
+                                        </well>
+                                    </items>
+                                </container>
+                            </items>
+                        </column>
+                    </items>
+                </columns>
+            </items>
+        </content>
+    </jcr:content>
+</jcr:root>

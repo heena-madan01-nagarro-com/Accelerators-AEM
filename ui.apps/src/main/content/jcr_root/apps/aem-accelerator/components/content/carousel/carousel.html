@@ -1,0 +1,67 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='carousel.components'}"/>
+<sly data-sly-call="${clientlib.js @ categories='carousel.components'}"/>
+<sly data-sly-use.carousel="com.adobe.aem.guides.aemaccelerator.core.models.CarouselModel"/>
+<sly data-sly-test.empty="${!carousel.carouselComponents}"/>
+
+
+<sly data-sly-test.isEnable="${inheritedPageProperties['enableLinkTrackingOnPage'] == 'true'}" >
+    <sly data-sly-test.trackId="${inheritedPageProperties.trackId}"/>
+</sly>
+
+
+<div data-sly-test="${wcmmode.edit && empty}" class="cq-placeholder" data-emptytext="${component.title}"></div>
+<sly class="m-5">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"
+         data-pause=${carousel.autopauseDisabled} data-interval="${carousel.autoplay ? carousel.delay : ''}">
+        <ol class="carousel-indicators">
+            <sly data-sly-list.carouselIndices="${carousel.carouselComponents}">
+                <li data-target="#carouselExampleIndicators"
+                    data-slide-to="${carouselIndicesList.count}"
+                    class="${carouselIndicesList.first ? 'active' : ''} ${trackId}_list_indicator_${carouselIndicesList.count}"></li>
+            </sly>
+        </ol>
+        <div class="carousel-inner">
+            <sly data-sly-list.carousel="${carousel.carouselComponents}">
+                <div class="carousel-item ${carouselList.first ? 'active' : ''}">
+                    <sly data-sly-test="${carousel.fileType == 'image'}">
+                        <div class="heroImage">
+                            <img src="${carousel.carouselImageRef}" alt="">
+                            <div class="top-center text-uppercase">${carousel.title ? carousel.title : currentPage.title}</div>
+                            <div class="heroImageHeading"><h3>${carousel.heading ? carousel.heading : "Heading"}</h3>
+                            </div>
+                            <div class="bottom-center" data-sly-test="${carousel.addButton}">
+                                <!--/*                                <a id="${id}_cta_button_${carouselList.count}" href="${carousel.buttonlink ? carousel.buttonlink : ''}.html" target="_blank">*/-->
+                                <!--/*                                    <button type="button"*/-->
+                                <!--/*                                            class="btn btn-info heroImageButton ${carousel.backgroundColor == '#000000' ? 'black' : (carousel.backgroundColor == '#FFFFFF' ? 'white' : (carousel.backgroundColor == '#D8F1FF' ? 'hugo-blue' : ''))}">${carousel.buttontitle ? carousel.buttontitle : "Add button title"}</button>*/-->
+                                <!--/*                                </a>*/-->
+                                <sly data-sly-test.link="${carousel.buttonlink}.html"/>
+                                <button type="button"
+                                        class="btn btn-info heroImageButton ${carousel.backgroundColor == '#000000' ? 'black' : (carousel.backgroundColor == '#FFFFFF' ? 'white' : (carousel.backgroundColor == '#D8F1FF' ? 'hugo-blue' : ''))}"
+                                        onClick="location.href='${link @ context='unsafe'}'">${carousel.buttontitle ? carousel.buttontitle : "Add button title"}
+                                </button>
+                            </div>
+                        </div>
+                    </sly>
+                    <sly data-sly-test="${carousel.fileType == 'video'}">
+                        <div class="banner">
+                            <video style="width:100%; height:100%" controls>
+                                <source src="${carousel.carouselImageRef}" type="video/${carousel.extension}">
+                            </video>
+                        </div>
+                    </sly>
+                </div>
+            </sly>
+        </div>
+        <a class="carousel-control-prev ${trackId}_previous" href="#carouselExampleIndicators" role="button"
+           data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next ${trackId}_next" href="#carouselExampleIndicators" role="button"
+           data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</sly>

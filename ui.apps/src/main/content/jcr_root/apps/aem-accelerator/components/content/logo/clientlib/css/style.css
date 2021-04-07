@@ -1,0 +1,53 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 40px;
+  color: black;
+  text-align: center;
+
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+   float: left;
+
+
+
+}
+
+.error {
+  color: red;
+  margin-left: 5px;
+}
+
+fieldLabel.error {
+  display: inline;
+}
+
+.errorClass { border:  1px solid red; }
+

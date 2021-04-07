@@ -1,0 +1,18 @@
+<div data-sly-test.editor="${wcmmode.edit || wcmmode.design}">Double click to Configure Logo Component</div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='logo.components'}"/>
+<sly data-sly-call="${clientlib.js @ categories='logo.components,aemaccelerator.site,aemaccelerator.utilities'}"/>
+
+<sly data-sly-use.analticsData="com.adobe.aem.guides.aemaccelerator.core.models.AnalyticsConfigurationModel"/>
+<sly data-sly-use.logoData="com.adobe.aem.guides.aemaccelerator.core.models.LogoModel"/>
+
+<div class="tooltip">
+
+<a href="${logoData.targetUrl}.html" class="logo" onClick="trackAnalytics('${analticsData.isEnable @ context='unsafe'}','${analticsData.event @ context='unsafe'}',
+
+'${analticsData.eventAction @ context='unsafe'}', '${analticsData.eventCategory @ context='unsafe'}', '${analticsData.eventLabel @ context='unsafe'}')">
+
+<img src="${logoData.imagePath}"alt="${logoData.altText}"  width="100" height="70" />
+ </a>
+<span class="tooltiptext" style="width=40px">${logoData.title}</span>
+</div>

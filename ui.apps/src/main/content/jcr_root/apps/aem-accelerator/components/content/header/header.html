@@ -1,0 +1,51 @@
+<div data-sly-test.editor="${wcmmode.edit || wcmmode.design}">Double click to Configure Header Component</div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='header.components'}"/>
+<sly data-sly-call="${clientlib.js @ categories='header.components, aemaccelerator.utilities'}"/>
+<!--get tracking id from page-->
+<sly data-sly-test.isEnable="${inheritedPageProperties['enableLinkTrackingOnPage'] == 'true'}">
+   <sly data-sly-test.trackId="${inheritedPageProperties.trackId}"/>
+</sly>
+<sly data-sly-use.analticsData="com.adobe.aem.guides.aemaccelerator.core.models.AnalyticsConfigurationModel"/>
+<div class="track-header" data-component-name="header" onClick="trackAnalytics('${analticsData.isEnable @ context='unsafe'}','${analticsData.event @ context='unsafe'}',
+   '${analticsData.eventAction @ context='unsafe'}', '${analticsData.eventCategory @ context='unsafe'}', '${analticsData.eventLabel @ context='unsafe'}')">
+   <sly data-sly-test="${properties.showLogo}" data-sly-resource="${'logo' @ resourceType='aem-accelerator/components/content/logo'}"/>
+   <div class="header-right margintop width33">
+      <span class="marginauto">
+         <sly data-sly-test="${properties.countryselector}" data-sly-resource="${'coun' @ resourceType='aem-accelerator/components/content/countryselector'}"/>
+      </span>
+      <div>
+         <sly data-sly-use.header="com.adobe.aem.guides.aemaccelerator.core.models.HeaderModel"/>
+         <sly data-sly-test.empty="${!header.sections}"/>
+         <sly data-sly-test="${!empty}">
+            <sly data-sly-list.section="${header.sections}">
+               <a href="${section.linkPath}.html" class="${trackId}">
+                  <img data-sly-test="${section.sectionImageRef}" src="${section.sectionImageRef}" alt="${section.altText}" width="20" />
+                  ${section.sectionTitle} </a>
+            </sly>
+         </sly>
+      </div>
+   </div>
+   <!--Header Menu-->
+   <div style="">
+      <sly data-sly-test="${properties.addHeaderMenu}" >
+         <div style="float:left;">
+            <sly data-sly-resource="${'headerMenu' @ resourceType='aem-accelerator/components/content/headerItems'}"/>
+         </div>
+      </sly>
+   </div>
+   <div class="header-right">
+      <sly data-sly-test="${properties.showsearch}" >
+         <div class="searchbox">
+            <sly data-sly-resource="${'sitesearch' @ resourceType='aem-accelerator/components/structure/search'}"/>
+         </div>
+      </sly>
+   </div>
+   <div style="">
+      <sly data-sly-test="${properties.addHeaderMenu}" >
+         <div style="float:left;">
+            <sly data-sly-resource="${'headerMenu' @ resourceType='aem-accelerator/components/content/headerItems'}"/>
+         </div>
+      </sly>
+   </div>
+</div>

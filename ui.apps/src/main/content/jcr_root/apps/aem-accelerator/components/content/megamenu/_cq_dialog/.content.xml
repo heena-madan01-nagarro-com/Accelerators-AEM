@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="MegaMenu"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[megamenu.components, aemaccelerator.utilities]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}false">
+                <items jcr:primaryType="nt:unstructured">
+                    <asset
+                        jcr:primaryType="nt:unstructured"
+                        sling:hideResource="{Boolean}false">
+                        <items jcr:primaryType="nt:unstructured">
+                            <text
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Image Text"
+                                name="./imageText"/>
+                        </items>
+                    </asset>
+                    <metadata
+                        jcr:primaryType="nt:unstructured"
+                        sling:hideResource="{Boolean}true"/>
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <megamenuItems
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldDescription="Click 'Add Field' to add a new heading.">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./megamenuItems">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <title
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldLabel="Item Title"
+                                                            name="./title"
+                                                            required="{Boolean}true"/>
+                                                        <megamenuSubitems
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                            composite="{Boolean}true"
+                                                            fieldDescription="Click 'Add Field' to add MegaMenu SubItem"
+                                                            fieldLabel="MegaMenu SubItem">
+                                                            <field
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                name="./megamenuSubitems">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <title
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldLabel="Mega Menu Sub Item Title"
+                                                                        name="./title"
+                                                                        required="{Boolean}true"/>
+                                                                    <link
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/foundation/form/pathbrowser"
+                                                                        fieldDescription="Enter Mega Menu SubItem Title"
+                                                                        fieldLabel="Mega Menu SubItem Link"
+                                                                        name="./link"
+                                                                        rootPath="/content"/>
+                                                                </items>
+                                                            </field>
+                                                        </megamenuSubitems>
+                                                    </items>
+                                                </field>
+                                            </megamenuItems>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                    <analytics
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Analytics"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <layout
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <enable
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                        class="cq-dialog-checkbox-showhide"
+                                        cq-dialog-checkbox-showhide-target=".button-option-enable-showhide-target"
+                                        fieldDescription="Please check to enable Analytics for Header component"
+                                        id="enable"
+                                        name="./enable"
+                                        text="Enable Analytics"
+                                        value="true"/>
+                                    <showHideContainer
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container"
+                                        class="hide button-option-enable-showhide-target"
+                                        showhidetargetvalue="true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <eventcategory
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                class="eventCategory"
+                                                fieldDescription="Enter Event Category to track Analytics"
+                                                fieldLabel="Event Category*"
+                                                name="./eventCategory"/>
+                                            <eventaction
+                                                granite:class="readonlySelector"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                class="eventAction"
+                                                fieldDescription="Enter Event Action to track Analytics"
+                                                fieldLabel="Event Action*"
+                                                name="./eventAction"
+                                                value="Event action is already defined in google analytics"/>
+                                            <eventlabel
+                                                granite:class="readonlySelector"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                class="eventLabel readOnlyClass"
+                                                fieldDescription="Enter Event Label to track Analytics"
+                                                fieldLabel="Event Label*"
+                                                name="./eventLabel"
+                                                value="Event Label is already defined in google analytics"/>
+                                            <event
+                                                granite:class="readonlySelector"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                class="event"
+                                                fieldDescription="Enter Event to track Analytics"
+                                                fieldLabel="Event*"
+                                                name="./event"
+                                                value="Event is already defined in google analytics"/>
+                                        </items>
+                                    </showHideContainer>
+                                </items>
+                            </columns>
+                        </items>
+                    </analytics>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

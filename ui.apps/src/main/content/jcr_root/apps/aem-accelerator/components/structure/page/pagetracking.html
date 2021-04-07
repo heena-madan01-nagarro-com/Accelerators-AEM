@@ -1,0 +1,12 @@
+<!--get tracking Action from page properties-->
+<sly data-sly-test.isEnable="${inheritedPageProperties['enableAnalyticsOnPage'] == 'true'}">
+    <sly data-sly-test.trackAction="${inheritedPageProperties.trackAction}"/>
+    <script >
+         window.dataLayer = window.dataLayer || []; 
+
+   		 window.dataLayer.push({
+         'event' : '${trackAction @ context='unsafe'}'
+});
+
+</script>
+</sly>

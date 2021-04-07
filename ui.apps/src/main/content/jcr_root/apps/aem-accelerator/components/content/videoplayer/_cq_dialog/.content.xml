@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Video Player Component"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[videoplayer.components, aemaccelerator.utilities]"
+    helpPath="style-guide.html#compare-rows-services"
+    mode="edit">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <layout
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/foundation/layouts/tabs"
+            type="nav"/>
+        <items jcr:primaryType="nt:unstructured">
+            <youtube
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Youtube"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <youtubeChannel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/apps/aem-accelerator/granite/youtube/youtubeChannel"
+                                fieldLabel="Youtube Channels"
+                                inputId="youtubeChannel"
+                                name="./youtubeChannel">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <channel1
+                                        jcr:primaryType="nt:unstructured"
+                                        text="AEM Community Channel"
+                                        value="AEM Community Channel"/>
+                                    <channel2
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Funny Plox"
+                                        value="funnyplox"/>
+                                </items>
+                            </youtubeChannel>
+                            <youtubeSearch
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/apps/aem-accelerator/granite/youtube/youtubeSearch"
+                                emptyText="Enter for Seach"
+                                fieldLabel="Youtube Search"
+                                name="./youtubeSearch"
+                                required="{Boolean}true"/>
+                            <youtubeId
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="/apps/aem-accelerator/granite/youtube/youtubeId"
+                                fieldLabel=""
+                                name="./youtubeId"
+                                readonly="{Boolean}true"
+                                validation="select.required"/>
+                        </items>
+                    </column>
+                </items>
+            </youtube>
+            <properties
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Youtube Properties"
+                sling:resourceType="granite/ui/components/foundation/section">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"
+                    margin="{Boolean}false"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <column
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <control
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                name="./control"
+                                text="Hide Controls?"
+                                value="true"/>
+                            <mute
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                name="./mute"
+                                text="Mute"
+                                value="true"/>
+                            <keyboard
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                name="./keyboard"
+                                text="Disable Keyboard"
+                                value="true"/>
+                            <fullscreen
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                name="./fullscreen"
+                                text="Show in Fullscreen"
+                                value="true"/>
+                        </items>
+                    </column>
+                </items>
+            </properties>
+            <analytics
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Analytics"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <layout
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/layouts/fixedcolumns"/>
+                <items jcr:primaryType="nt:unstructured">
+                    <columns
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <enable
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                class="cq-dialog-checkbox-showhide"
+                                cq-dialog-checkbox-showhide-target=".button-option-enable-showhide-target"
+                                fieldDescription="Please check to enable Analytics for Header component"
+                                id="enable"
+                                name="./enable"
+                                text="Enable Analytics"
+                                value="true"/>
+                            <showHideContainer
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container"
+                                class="hide button-option-enable-showhide-target"
+                                showhidetargetvalue="true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <eventcategory
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        class="eventCategory"
+                                        fieldDescription="Enter Event Category to track Analytics"
+                                        fieldLabel="Event Category*"
+                                        name="./eventCategory"/>
+                                    <eventaction
+                                        granite:class="readonlySelector"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        class="eventAction"
+                                        fieldDescription="Enter Event Action to track Analytics"
+                                        fieldLabel="Event Action*"
+                                        name="./eventAction"
+                                        value="Event action is already defined in google analytics"/>
+                                    <eventlabel
+                                        granite:class="readonlySelector"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        class="eventLabel readOnlyClass"
+                                        fieldDescription="Enter Event Label to track Analytics"
+                                        fieldLabel="Event Label*"
+                                        name="./eventLabel"
+                                        value="Event Label is already defined in google analytics"/>
+                                    <event
+                                        granite:class="readonlySelector"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        class="event"
+                                        fieldDescription="Enter Event to track Analytics"
+                                        fieldLabel="Event*"
+                                        name="./event"
+                                        value="Event is already defined in google analytics"/>
+                                </items>
+                            </showHideContainer>
+                        </items>
+                    </columns>
+                </items>
+            </analytics>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,60 @@
+.headerImage{
+position: relative;
+  text-align: center;
+  color: white;
+
+}
+
+.width33{
+        width: 34%;
+}
+
+.footer-right {
+  float: right;
+}
+
+.footerNoImage {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+
+}
+
+.footerImage {
+  overflow: hidden;
+  padding: 20px 10px;
+
+}
+.footerImage a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.heading{
+
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: black;
+   text-align: center;
+    background-color: black;
+  color: white;
+}
+
+.textalign {
+  text-align: center;
+}
+
+.terms{
+    text-align: center;
+
+}
+
+
+
